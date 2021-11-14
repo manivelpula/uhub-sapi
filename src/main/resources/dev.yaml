@@ -1,0 +1,13 @@
+http:
+  port: "8081"
+
+  
+database:
+  uhub:
+    host: "localhost"
+    port: "3306"
+    user: "root"
+    password: "![KaL+2b8ml68=]"
+
+enc:
+  key: "qwerty987654321"

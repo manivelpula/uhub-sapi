@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd">
+	<sub-flow name="insert-covid-case-sub-flowSub_Flow"
+		doc:id="2453addf-b019-446d-b5a2-521b56c52370">
+		<logger level="INFO" doc:name="Start Flow"
+			doc:id="47917894-67b1-4bec-b7b0-2355b672c3a3"
+			message="transactionId : #[vars.transactionId]] message : Started register covid cases flow - payload :#[payload]" />
+
+
+	<db:insert doc:name="Insert Covid Master " doc:id="bd3ae4b5-a728-4d52-89aa-be1adaf3ba3d" config-ref="Database_Config" autoGenerateKeys="true" queryTimeout="10" queryTimeoutUnit="HOURS">
+			<db:sql ><![CDATA[INSERT INTO cvd_case_master(source, case_type, first_name, last_name, phone, email, date_of_birth, national_id, national_id_type, street_address, city, state, postal, country, create_date, update_date, create_by, update_by) values(:source, :case_type, :first_name, :last_name, :phone, :email, :date_of_birth, :national_id, :national_id_type, :street_address, :city, :state, :postal, :country,:create_date,  :update_date, :create_by, :update_by)]]></db:sql>
+			<db:input-parameters ><![CDATA[#[payload]]]></db:input-parameters>
+			<db:auto-generated-keys-column-names >
+				<db:auto-generated-keys-column-name value="CASE_ID" />
+			</db:auto-generated-keys-column-names>
+		</db:insert>
+		<logger level="INFO" doc:name="End Flow" doc:id="75bdd231-d80d-4965-a907-ecc52b8919b8" message="transactionID: #[vars.transactionId]] message: End register covid case flow, payload: #[payload]"/>
+		
+
+	</sub-flow>
+</mule>
