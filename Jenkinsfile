@@ -21,6 +21,10 @@ stages {
           MY_SECRET = credentials('anykeysecret')          
         }
     steps {
+      echo '$MY_CRED_USR'
+      echo '$MY_CRED_PSW'
+      echo '$MY_CLIENT'
+      echo '$MY_SECRET'
       bat 'mvn clean package deploy -DmuleDeploy -Pdev -Dusername=$MY_CRED_USR -Dpassword=$MY_CRED_PSW -Denc.key=$MY_KEY -Danypoint.platform.client_id=$MY_CLIENT -Danypoint.platform.client_secret=$MY_SECRET'
     }
   }
