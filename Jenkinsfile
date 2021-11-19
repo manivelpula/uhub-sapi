@@ -16,6 +16,7 @@ pipeline {
    
 	stage('Deployment') { 
       environment {
+	ANYPOINT_CREDENTIALS = credentials('anypointPlatform')
         ENVIRONMENT = 'dev'
         APP_NAME = 'uho-dev-sapi'
 	
