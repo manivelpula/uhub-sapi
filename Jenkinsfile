@@ -1,11 +1,5 @@
 pipeline {
 agent any
-      environment {
-   MY_CRED = credentials('anypointPlatform')
-   MY_KEY = credentials('Denc.key')
-   MY_CLIENT = credentials('Danypoint.platform.client_id')
-   MY_SECRET = credentials('Danypoint.platform.client_secret')          
-    }
 stages {
   stage('Build') {
     steps {
