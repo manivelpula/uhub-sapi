@@ -2,7 +2,7 @@ pipeline {
 agent any
     environment {
 
-   MY_CRED = credentials('ANYPOINT_CREDENTIALS_USR')
+   MY_CRED = credentials('anypointPlatform')
 
     }
 stages {
