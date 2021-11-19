@@ -1,5 +1,10 @@
 pipeline {
 agent any
+    environment {
+
+   MY_CRED = credentials('ANYPOINT_CREDENTIALS_USR')
+
+    }
 stages {
   stage('Build') {
     steps {
@@ -16,11 +21,10 @@ stages {
 
   }
  
-  stage('Deploy to Cloudhub') {
-     withCredentials([file(credentialsId: '', variable: 'ANYPOINT_CREDENTIALS_USR')]) 
+  stage('Deploy to Cloudhub') { 
   steps {
 
-      bat 'mvn clean package deploy -DmuleDeploy -Pdev -Dusername=${anypointPlatform} -Dpassword=${anypointPlatform} -Denc.key=${Denc.key} -Danypoint.platform.client_id=${Danypoint.platform.client_id} -Danypoint.platform.client_secret=${Danypoint.platform.client_secret}'
+      bat 'mvn clean package deploy -DmuleDeploy -Pdev -Dusername=$MY_CRED_USR -Dpassword=$MY_CRED_PSW -Denc.key=${Denc.key} -Danypoint.platform.client_id=${Danypoint.platform.client_id} -Danypoint.platform.client_secret=${Danypoint.platform.client_secret}'
 
     }
   } 
