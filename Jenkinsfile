@@ -25,7 +25,7 @@ pipeline {
       steps {
         echo 'Deploying only because of code commit...'
         echo 'Deploying to  dev environent....'
-        bat 'mvn clean package deploy -DmuleDeploy -Dusername=mani_uho -Dpassword=Manimani1 -Denc.key=abcdefgh123456789101112 -Danypoint.platform.client_id=8a70cdce412245e8b6d2abb963b43fd1 -Danypoint.platform.client_secret=3bEa4bb899d4452FB5E6C7987846a5b4
+        bat 'mvn clean package deploy -DmuleDeploy -Dusername=mani_uho -Dpassword=Manimani1 -Denc.key=abcdefgh123456789101112 -Danypoint.platform.client_id=8a70cdce412245e8b6d2abb963b43fd1 -Danypoint.platform.client_secret=3bEa4bb899d4452FB5E6C7987846a5b4'
       }
 	  
 	}
