@@ -21,7 +21,7 @@ stages {
   }
   stage('Deploy to Cloudhub') {
     steps {
-      bat 'mvn clean package deploy -DmuleDeploy -Pdev -Dusername=$MY_CRED_USR -Dpassword=$MY_CRED_PSW -Denc.key=Danypoint.platform.client_id -Danypoint.platform.client_id=b5380b80479645308fa3c1853e314501 -Danypoint.platform.client_secret=248844e0C9124EAfa4eE6ceAE070d752'
+      bat 'mvn clean package deploy -DmuleDeploy -Pdev -Dusername=$MY_CRED_USR -Dpassword=$MY_CRED_PSW -Denc.key=$MY_KEY_SEC -Danypoint.platform.client_id=$MY_CLIENT_SEC -Danypoint.platform.client_secret=$MY_SECRET_SEC'
     }
   }
 }
